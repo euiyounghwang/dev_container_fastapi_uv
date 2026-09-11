@@ -1,5 +1,5 @@
 
-name: Python-CICD-Ollam-UV
+name: Python-CICD-Devcontainer-UV
 
 # on:
 #   workflow_call:

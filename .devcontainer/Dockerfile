@@ -9,6 +9,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /workspace
 
+# 2. Copy the rest of the application source code
+COPY ../ .
+
 # uv를 사용해 가상환경 생성 및 경로 설정
 ENV VIRTUAL_ENV=/workspace/.venv
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"

@@ -1,0 +1,25 @@
+{
+  "name": "FastAPI uv Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "charliermarsh.ruff"
+      ]
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:1": {
+      "configureZshAsDefaultShell": true
+    }
+  },
+  "workspaceFolder": "/workspace",
+  // 컨테이너가 생성된 후 로컬 동기화된 pyproject.toml을 기반으로 uv 설치를 진행합니다.
+  "updateContentCommand": "uv venv && uv pip install -e .",
+  // 포트 포워딩 설정 (FastAPI 기본 포트)
+  "forwardPorts": [8000]
+}

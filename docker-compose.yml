@@ -4,12 +4,13 @@ services:
     container_name: fn-devcontainer-api
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ./.devcontainer/Dockerfile
       target: runtime
+    entrypoint: ./uv_fastapi_start.sh
     ports:
-      - 17777:7777
+      - 8001:8000
     volumes:
-      - ./:/app/FN-Devcontainer-Services
+      - ./:/workspace
     # restart: unless-stopped
     environment:
       - ES_HOST=http://host.docker.internal:9203

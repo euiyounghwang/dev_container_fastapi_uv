@@ -23,7 +23,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 FROM python:3.11-slim AS runtime
 
 # FastAPI 기본 포트 오픈
-EXPOSE 8001
+EXPOSE 8000
 
 WORKDIR /workspace
 

@@ -27,5 +27,9 @@
   // Sync Python dependencies right after the container finishes building
   "postCreateCommand": "uv sync --locked && bash ./uv_fastapi_start.sh",
   // 포트 포워딩 설정 (FastAPI 기본 포트)
-  "forwardPorts": [8001]
+  // "forwardPorts": [8001]
+   // Docker run 명령어 뒤에 인자(-p 8000:8000)를 붙이는 것과 완전히 동일합니다.
+  "runArgs": [
+    "-p", "8001:8000"
+  ]
 }

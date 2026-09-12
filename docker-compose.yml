@@ -1,7 +1,7 @@
 services:
   fn-devcontainer-api:
     image: fn-devcontainer-api:es
-    container_name: fn-devcontainer-api
+    container_name: fevcontainer-fastapi-uv
     build:
       context: .
       dockerfile: ./.devcontainer/Dockerfile

@@ -5,6 +5,7 @@
     "context": "..", // 빌드 컨텍스트를 한 단계 위(프로젝트 루트)로 설정
     "target": "runtime"
   },
+   // 컨테이너 환경 변수로 SHELL 지정
   "containerEnv": {
     "NODE_OPTIONS": "--no-deprecation"
   },
@@ -23,13 +24,17 @@
     }
   },
   "workspaceFolder": "/workspace",
+  // / 로컬 소스(${localWorkspaceFolder})를 컨테이너의 /app 경로로 마운트
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
   // 컨테이너가 생성된 후 로컬 동기화된 pyproject.toml을 기반으로 uv 설치를 진행합니다.
   // Sync Python dependencies right after the container finishes building
   "postCreateCommand": "uv sync --locked && bash ./uv_fastapi_start.sh",
+  // "postCreateCommand": "bash ./uv_fastapi_start.sh",
   // 포트 포워딩 설정 (FastAPI 기본 포트)
   // "forwardPorts": [8001]
    // Docker run 명령어 뒤에 인자(-p 8000:8000)를 붙이는 것과 완전히 동일합니다.
   "runArgs": [
-    "-p", "8001:8000"
+    "-p", "8001:8000",
+    "--name=devcontainer-fastapi-uv"
   ]
 }

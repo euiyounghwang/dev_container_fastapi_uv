@@ -26,9 +26,11 @@
   "workspaceFolder": "/workspace",
   // / 로컬 소스(${localWorkspaceFolder})를 컨테이너의 /app 경로로 마운트
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
-  // 컨테이너가 생성된 후 로컬 동기화된 pyproject.toml을 기반으로 uv 설치를 진행합니다.
-  // Sync Python dependencies right after the container finishes building
-  "postCreateCommand": "uv sync --locked && bash ./uv_fastapi_start.sh",
+  // Run Application
+  // "postCreateCommand": "uv sync --locked && bash ./uv_fastapi_start.sh",
+  "postCreateCommand": "bash ./uv_fastapi_start.sh",
+  // Run Pytest
+  // "postCreateCommand": "bash ./pytest.sh",
   // "postCreateCommand": "bash ./uv_fastapi_start.sh",
   // 포트 포워딩 설정 (FastAPI 기본 포트)
   // "forwardPorts": [8001]

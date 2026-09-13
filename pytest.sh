@@ -1,4 +1,7 @@
-set -e
+#!/bin/bash
+
+set -eu
+
 
 # Activate virtualenv && run serivce
 SCRIPTDIR="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
@@ -18,5 +21,6 @@ export PYTHONDONTWRITEBYTECODE=1
 # py.test -v tests
 # py.test -v ./tests --cov-report term-missing --cov
 # poetry run py.test -sv ./tests --disable-warnings --cov-report term-missing --cov
-uv run pytest ./tests -sv ./tests
+uv run pytest ./tests -v ./tests
+# uv run pytest ./tests -sv ./tests
 # uv run pytest ./tests -sv ./tests -sv ./tests --disable-warnings --cov-report term-missing --cov

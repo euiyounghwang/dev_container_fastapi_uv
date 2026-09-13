@@ -1,7 +1,7 @@
 services:
   fn-devcontainer-api:
     image: fn-devcontainer-api:es
-    container_name: fevcontainer-fastapi-uv
+    container_name: devcontainer-fastapi-uv
     build:
       context: .
       dockerfile: ./.devcontainer/Dockerfile
@@ -16,6 +16,25 @@ services:
       - ES_HOST=http://host.docker.internal:9203
     networks:
       - bridge
+
+  fn-devcontainer-api-test:
+    image: fn-devcontainer-api-test:es
+    container_name: devcontainer-fastapi-uv-test
+    build:
+      context: .
+      dockerfile: ./.devcontainer/Dockerfile
+      target: runtime
+    entrypoint: ./pytest.sh
+    ports:
+      - 8002:8000
+    volumes:
+      - ./:/workspace
+    # restart: unless-stopped
+    environment:
+      - ES_HOST=http://host.docker.internal:9203
+    networks:
+      - bridge
+
 
 volumes:
   ollama_data:

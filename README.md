@@ -66,3 +66,23 @@ tests/test_api.py::test_api PASSED
 ================================================ 1 passed in 0.14s =================================================
 (.venv) ➜  dev_container_fastapi_uv git:(master) ✗ 
 ```
+
+### Pytest via devcontainer
+- Change the code(devcontainer.json) and postCreateCommand option
+- __COMMAND+SHIFT+P - Reope in Container__
+```bash
+root ➜ /workspace (master ✗) $ ./pytest.sh 
+===================================================================== test session starts ======================================================================
+platform linux -- Python 3.11.16, pytest-9.1.1, pluggy-1.6.0 -- /workspace/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /workspace/tests
+configfile: pytest.ini
+plugins: anyio-4.15.1
+collected 1 item                                                                                                                                               
+
+tests/test_api.py::test_api INFO:       2026-09-13 02:20:23     [main.py:9]     Devcontainer Request..~~
+PASSED
+
+====================================================================== 1 passed in 0.33s =======================================================================
+root ➜ /workspace (master ✗) $ 
+```

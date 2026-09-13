@@ -5,6 +5,7 @@ description = "FastAPI application with uv and Dev Container"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "colorlog>=6.12.0",
     "fastapi>=0.141.1",
     "gunicorn>=26.2.0",
     "uvicorn>=0.52.4",

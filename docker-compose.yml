@@ -11,6 +11,7 @@ services:
       - 8001:8000
     volumes:
       - ./:/workspace
+      - /workspace/.venv      # 2. 로컬의 .venv가 컨테이너 /app/.venv를 덮어쓰지 못하도록 무시
     # restart: unless-stopped
     environment:
       - ES_HOST=http://host.docker.internal:9203
@@ -29,6 +30,7 @@ services:
       - 8002:8000
     volumes:
       - ./:/workspace
+      - /workspace/.venv      # 2. 로컬의 .venv가 컨테이너 /app/.venv를 덮어쓰지 못하도록 무시
     # restart: unless-stopped
     environment:
       - ES_HOST=http://host.docker.internal:9203

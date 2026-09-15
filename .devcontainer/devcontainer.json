@@ -26,6 +26,10 @@
   "workspaceFolder": "/workspace",
   // / 로컬 소스(${localWorkspaceFolder})를 컨테이너의 /app 경로로 마운트
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  // 컨테이너 내 워크스페이스의 .venv 폴더를 별도 볼륨으로 분리 (Conflic between Window and Linux)
+  "mounts": [
+    "source=${localWorkspaceFolderBasename}-venv,target=${containerWorkspaceFolder}/.venv,type=volume"
+  ],
   // Run Application
   // "postCreateCommand": "uv sync --locked && bash ./uv_fastapi_start.sh",
   "postCreateCommand": "bash ./uv_fastapi_start.sh",
